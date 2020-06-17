@@ -1,2 +1,2 @@
-# wp-logs
+# WP Logs
 A log system for developers
