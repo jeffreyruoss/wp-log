@@ -1,12 +1,12 @@
 <?php
 /**
- * Plugin Name: WP Logs for Devs
+ * Plugin Name: WP Log
  * Plugin URI: https://jeffruoss.com
- * Description: A log system for developers.
+ * Description: A log system for custom child themes and custom plugins.
  * Author: Jeff Ruoss
  * Version: 1
  * Author URI: https://jeffruoss.com
- * Text Domain: wp-logs-for-devs
+ * Text Domain: wp-log
  */
 
 
