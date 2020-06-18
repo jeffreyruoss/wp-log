@@ -1,2 +1,2 @@
-# WP Logs For Devs
-A log system for developers
+# WP Log
+A log system for custom child themes and custom plugins.
