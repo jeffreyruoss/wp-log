@@ -13,18 +13,18 @@ if ( ! defined( 'WPINC' ) ) {
  * Add log admin menu item
  */
 
-function r_log_admin_menu_item() {
-    add_menu_page( 'Log', 'Log', 'manage_options', 'log.php', 'r_log_admin_page', 'dashicons-text-page', 30  );
+function wpl_log_admin_menu_item() {
+    add_menu_page( 'Log', 'Log', 'manage_options', 'log.php', 'wpl_log_admin_page', 'dashicons-text-page', 30  );
 }
 
-add_action( 'admin_menu', 'r_log_admin_menu_item' );
+add_action( 'admin_menu', 'wpl_log_admin_menu_item' );
 
 
 /**
  * Log admin page
  */
 
-function r_log_admin_page(){
+function wpl_log_admin_page(){
     ?>
     <div class="wrap">
         <h2>Log</h2>

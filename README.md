@@ -2,7 +2,7 @@
 A log system for custom child themes and custom plugins.
 
 
-    $r_log_content = array(
+    $wpl_content = array(
         'message',
         array(
             '1' => 'one',
@@ -11,4 +11,4 @@ A log system for custom child themes and custom plugins.
         'another message'
     );
     
-    r_log('success', $r_log_content );
+    wpl('success', $r_log_content );
