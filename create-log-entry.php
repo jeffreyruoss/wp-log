@@ -11,7 +11,7 @@ if ( ! defined( 'WPINC' ) ) {
     die;
 }
 
-function wpl($type, array $content) {
+function wpl_create_log_entry($type, array $content) {
     $log_args = array(
         'post_title' => $type,
         'post_type' => 'logs',
