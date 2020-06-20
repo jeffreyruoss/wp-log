@@ -66,7 +66,7 @@ function wpl_log_admin_page(){
         $args = array(
             'posts_per_page' => $per_page,
             'paged' => $paged,
-            'post_type' => 'logs',
+            'post_type' => 'log',
             's' => $search_keywords
         );
 

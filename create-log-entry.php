@@ -14,7 +14,7 @@ if ( ! defined( 'WPINC' ) ) {
 function wpl_create_log_entry($type, array $content) {
     $log_args = array(
         'post_title' => $type,
-        'post_type' => 'logs',
+        'post_type' => 'log',
         'post_status' => 'private',
         'meta_input' => array(
             'content' => $content
