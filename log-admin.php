@@ -78,48 +78,45 @@ function wpl_log_admin_page(){
         if ( $the_query->have_posts() ) :
             ?>
             <style>
-                .r-log-entries { background: #fff; padding: 0; border-radius: 5px; color: #444; overflow: hidden; }
+                .r-log-entries { background: #fff; padding: 0; border-radius: 5px; color: #444; line-height: 21px; overflow: hidden; }
                 .r-log-entries li { display: flex; border-bottom: 1px solid #eee; padding: 5px; margin-bottom: 0; position: relative; }
                 .r-log-entries li:last-child { border-bottom: none; }
-                .r-log-entries .log-entry-time { margin-right: 15px; padding-top: 4px; flex: 0 0 212px; color: #8672a7; }
-                .r-log-entries .log-entry-type { margin-right: 15px; color: #fff; padding: 3px 7px 5px; border-radius: 3px; background-color: #9e9e9e; min-width: 62px; text-align: center; text-transform: uppercase; display: block; height: 17px; }
+                .r-log-entries .log-entry-time { padding-top: 4px; flex: 0 0 230px; color: #8672a7; }
+                .r-log-entries .log-entry-type { margin-right: 20px; color: #fff; padding: 2px 7px 6px; border-radius: 3px; background-color: #9e9e9e; min-width: 62px; text-align: center; text-transform: uppercase; display: block; height: 17px; }
                 .r-log-entries .log-entry-type-info { background-color: #5495C5; }
                 .r-log-entries .log-entry-type-warning { background-color: #EBAD3E; }
                 .r-log-entries .log-entry-type-error { background-color: #BD2F34; }
                 .r-log-entries .log-entry-type-success { background-color: #69A955; }
-                .r-log-entries .log-entry-content { white-space: nowrap; overflow: hidden; }
+                .r-log-entries .log-entry-content { white-space: nowrap; overflow: hidden; padding-top: 4px; }
                 .r-log-entries .log-entry-content:after { content: "..."; position: absolute; right: 0; top: 0; background-color: #fff; padding-top: 9px; padding-left: 5px; padding-right: 5px; color: #0073aa; }
                 .r-log-entries .log-entry-content p { margin: 0; }
-                .r-log-entries .log-entry-content .array { }
 
                 .r-log-entries li:hover { cursor: pointer; background-color: aliceblue; }
                 .r-log-entries li:hover .log-entry-content:after { background-color: aliceblue; }
-                .r-log-entries li.log-entry-expanded { }
                 .r-log-entries li.log-entry-expanded .log-entry-content { overflow: visible; }
-                .r-log-entries li.log-entry-expanded .log-entry-content .log-text { display: block;}
-                .r-log-entries li.log-entry-expanded .log-entry-content .log-array { white-space: pre;}
+                .r-log-entries li.log-entry-expanded .log-entry-content strong { margin-bottom: 5px; display: block; }
+                .r-log-entries li.log-entry-expanded .log-entry-content .log-array { white-space: pre; }
                 .r-log-entries li.log-entry-expanded .log-entry-content:after { display: none; }
             </style>
             <ul class="r-log-entries contracted">
                 <?php
                 while ( $the_query->have_posts() ) : $the_query->the_post();
+                    $id = get_the_ID();
+                    $type = get_post_meta($id, 'type');
+                    $type = $type[0];
+                    $title = get_the_title();
+                    $content = get_post_meta($id, 'content');
+                    $content = $content[0];
                     ?>
                     <li>
                         <span class="log-entry-time"><?php echo get_post_time("d-M-Y H:i:s T" ); ?></span>
-                        <span class="log-entry-type log-entry-type-<?php echo get_the_title();?>"><?php the_title(); ?></span>
+                        <span class="log-entry-type log-entry-type-<?php echo $type ?>"><?php echo $type; ?></span>
                         <span class="log-entry-content">
                             <?php
-                            $content = get_post_meta(get_the_ID(), 'content');
-                            foreach($content[0] as $item) {
-                                if (is_array($item)) {
-                                    echo '<span class="log-array">';
-                                    print_r($item);
-                                    echo '</span>';
-                                }
-                                else {
-                                    echo '<span class="log-text">' .  $item . ' </span>';
-                                }
-                            }
+                            echo '<strong>' . $title . ' &nbsp </strong>';
+                            echo '<span class="log-array">';
+                            echo print_r($content, true);
+                            echo '</span>';
                             ?>
                         </span>
                     </li>

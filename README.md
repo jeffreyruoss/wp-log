@@ -10,9 +10,9 @@ Add this to your custom child theme or plugin:
      * Setup for the WP Log plugin
      */
     
-    function wpl( $message, array $content ) {
+    function wpl( $type, $title, $content ) {
         if ( function_exists('wpl_create_log_entry') ) {
-            wpl_create_log_entry($message, $content);
+            wpl_create_log_entry($type, $title, $content);
         }
         else {
             error_log('Function not found: wpl_create_log_entry()');
@@ -21,20 +21,19 @@ Add this to your custom child theme or plugin:
 
 
 ## Create a log entry 
-wpl() takes a string for the log entry type <br>and an array of log items that you want to show (they can be strings or arrays):
 
-    $wpl_content = array(
-        'My log message text.',
-        array(
-            '1' => 'one',
-            '2' => 'two'
-        ),
-        'More log message text.'
-    );
+    wpl( 'error', 'This is my title', 'This is my log data.' );
+
+Pass a string, array or object through the $content arg.
     
-    wpl('success', $wpl_content );
+If it's a mix of strings, array and or objects use print_r like this:
+    
+    $content = print_r(array('one', 'two'), true) . ' More log message text.;
+    
+    wpl( 'error', 'My log message text.', $content );
+    
 
-The above will appear like this in the log:
+The above will appear something like this in the log:
 
 ![WPL error screenshot](wpl-error-readme-screenshot.png "WPL error screenshot")
 
