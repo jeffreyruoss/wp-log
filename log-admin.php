@@ -87,6 +87,7 @@ function wpl_log_admin_page(){
                 .r-log-entries .log-entry-type-warning { background-color: #EBAD3E; }
                 .r-log-entries .log-entry-type-error { background-color: #BD2F34; }
                 .r-log-entries .log-entry-type-success { background-color: #69A955; }
+                .r-log-entries .log-entry-type-test { background-color: #673ab7; }
                 .r-log-entries .log-entry-content { white-space: nowrap; overflow: hidden; padding-top: 4px; }
                 .r-log-entries .log-entry-content:after { content: "..."; position: absolute; right: 0; top: 0; background-color: #fff; padding-top: 9px; padding-left: 5px; padding-right: 5px; color: #0073aa; }
                 .r-log-entries .log-entry-content p { margin: 0; }
