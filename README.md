@@ -6,10 +6,7 @@ A log system plugin for WordPress custom child themes and custom plugins.
 1. Upload to your WordPress plugin directory and active it in the WordPress admin just like any plugin. 
 2. Add this to your custom child theme or plugin:
     
-    /**
-     * Setup for the WP Log plugin
-     */
-    
+    /* Setup for the WP Log plugin */
     function wpl( $type, $title, $content ) {
         if ( function_exists('wpl_create_log_entry') ) {
             wpl_create_log_entry($type, $title, $content);
