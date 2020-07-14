@@ -67,7 +67,8 @@ function wpl_log_admin_page(){
             'posts_per_page' => $per_page,
             'paged' => $paged,
             'post_type' => 'log',
-            's' => $search_keywords
+            's' => $search_keywords,
+            'orderby' => array('post_date' => 'DESC', 'title' => 'DESC')
         );
 
         $the_query = new WP_Query( $args );
